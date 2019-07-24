@@ -1,5 +1,6 @@
 package dawsonlee1790.springboot_validation_kotlin_demo.controller
 
+import org.intellij.lang.annotations.Language
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
@@ -47,7 +48,7 @@ class LoginControllerTest {
     @Test
     fun loginSuccessful() {
         val url = "$baseUrl/login"
-        val contextJson = "{\n  \"name\": \"dawsonlee1790\",\n  \"age\": 17\n}"
+        @Language("JSON") val contextJson = "{\n  \"name\": \"dawsonlee1790\",\n  \"age\": 17\n}"
         val result = post(url, contextJson)
         Assert.assertEquals(200, result.response.status)
     }
@@ -55,7 +56,7 @@ class LoginControllerTest {
     @Test
     fun loginErrorByName() {
         val url = "$baseUrl/login"
-        val contextJson = "{\n  \"name\": \"===dawsonlee1790\",\n  \"age\": 17\n}"
+        @Language("JSON") val contextJson = "{\n  \"name\": \"===dawsonlee1790\",\n  \"age\": 17\n}"
         val result = post(url, contextJson)
         Assert.assertEquals(400, result.response.status)
     }
@@ -63,7 +64,7 @@ class LoginControllerTest {
     @Test
     fun loginErrorByAge() {
         val url = "$baseUrl/login"
-        val contextJson = "{\n  \"name\": \"===dawsonlee1790\",\n  \"age\": 18\n}"
+        @Language("JSON") val contextJson = "{\n  \"name\": \"===dawsonlee1790\",\n  \"age\": 18\n}"
         val result = post(url, contextJson)
         Assert.assertNotEquals(200, result.response.status)
     }
