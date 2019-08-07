@@ -2,6 +2,7 @@ package dawsonlee1790.springboot_validation_kotlin_demo.controller
 
 import dawsonlee1790.springboot_validation_kotlin_demo.dto.ComplexDTO
 import dawsonlee1790.springboot_validation_kotlin_demo.dto.LoginDTO
+import dawsonlee1790.springboot_validation_kotlin_demo.dto.NotEqualsDTO
 import org.slf4j.LoggerFactory
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.PostMapping
@@ -29,6 +30,11 @@ class LoginController {
     @PostMapping("/complexValidate")
     fun complexValidate(@RequestBody @Valid complexDTO: ComplexDTO) {
         logger.info("complex validate successful")
+    }
+
+    @PostMapping("/notEqualsValidate")
+    fun notEqualsValidate(@RequestBody @Valid dto: NotEqualsDTO){
+        logger.info("not equals validate successful")
     }
 
 }
