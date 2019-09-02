@@ -27,3 +27,9 @@ Content-Type: application/json
 }
 
 ###
+
+GET http://127.0.0.1:8080/loginController/paramValidate?positive=-1&negative=1
+Content-Type: application/json
+
+###
+
